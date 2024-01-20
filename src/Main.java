@@ -1,11 +1,12 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        String e = "2+3-4*(3-4/2)";
-        System.out.println(solveEquation(e));
+        List<String> equations = Arrays.asList(
+                "(5 + 3) * 2"
+        );
+        for(String e: equations)
+            System.out.println(solveEquation(e));
     }
 
     private static int solveEquation(String e) {
@@ -43,7 +44,6 @@ public class Main {
                     int n2 = operands.pop();
                     int n1 = operands.pop();
                     operands.push(operation(n1, n2, operators.pop()));
-//                    operators.pop();
                 }
                 operators.push(ch);
             }
